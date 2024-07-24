@@ -1,0 +1,84 @@
+
+
+body{height:100vh;}
+
+body {
+  background-image: url('/background1.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+  transition: background-image 1s ease-in-out; 
+  background-attachment: fixed;
+}
+
+.weather-container{background: #000000a1;
+  color: #fff; text-align:center;} 
+  .icon-weather{height:100px;} 
+
+  .icon-weather {
+    height: 100px;
+    filter: invert(1);
+}
+.font-weather{font-size: 4rem;
+font-weight: 100;}
+.icon-div {
+    width: 150px;
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+}
+.input-group{background: #000000b5;
+    border-bottom: 1px solid #ffffff91;}
+input.form-control {
+    background: transparent !important;
+    border: none;
+    border-radius: 0;
+    box-shadow: none !important;
+    color: #fff !important;
+}
+input.form-control::placeholder{color:#fff6;}
+.move-img {
+    height: 100px;
+    position: absolute;
+    animation: moveLeftToRightAndBack 10s linear infinite;
+  }
+  .btn-search {
+    display: inline-block;
+    background: #000000;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    border: none;
+    color: #fff;
+}
+.btn-search:hover {
+    color: #ffffffad;
+}
+.err{color:firebrick;}
+.icon-pin{height:30px; filter:invert(1); margin-right:10px;}
+  @keyframes moveLeftToRightAndBack {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: calc(100% - 100px); /* Move to the right edge minus the image width */
+    }
+    100% {
+      left: 0;
+    }
+  }
+  td {
+    font-size: 20px;
+    border-bottom: 1px solid #fff !important;
+    padding: 10px 0 !important;
+    background: transparent !important;
+    color: #fff !important;
+}
+  td:first-child{text-align:left}
+  td:last-child{text-align:right}
+  .weather-data {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
