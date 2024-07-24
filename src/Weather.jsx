@@ -5,6 +5,7 @@ import WeatherSearch from './WeatherSearch';
 import WeatherInfo from './WeatherInfo';
 import WeatherIcon from './WeatherIcon';
 import WeatherSkeleton from './WeatherSkeleton';
+import {imgUrl, weatherapikey} from './constants';
 
 library.add(faMagnifyingGlass);
 
@@ -12,7 +13,7 @@ const Weather = () => {
   const [city, setCity] = useState('Pune');
   const [error, setError] = useState('');
   const [weather, setWeather] = useState(null);
-  const [iconSrc, setIconSrc] = useState('src/assets/img/clouds.png');
+  const [iconSrc, setIconSrc] = useState(`${imgUrl}clouds.png`);
   const [loading, setLoading] = useState(false);
 
   const handleChangeCity = (event) => {
@@ -27,7 +28,7 @@ const Weather = () => {
     }
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3e13ca93fb11ac57f0d6a68a75be7623`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherapikey}`
       );
       if (!response.ok) {
         setError('City not found.');
@@ -37,25 +38,25 @@ const Weather = () => {
       const data = await response.json();
       switch (data.weather[0].main) {
         case 'Rain':
-          setIconSrc('src/assets/img/rainy.png');
+          setIconSrc(`${imgUrl}rainy.png`);
           break;
         case 'Clouds':
-          setIconSrc('src/assets/img/cloudy.png');
+          setIconSrc(`${imgUrl}cloudy.png`);
           break;
         case 'Mist':
-          setIconSrc('src/assets/img/clouds.png');
+          setIconSrc(`${imgUrl}clouds.png`);
           break;
         case 'Haze':
-          setIconSrc('src/assets/img/fog.png');
+          setIconSrc(`${imgUrl}fog.png`);
           break;
         case 'Drizzle':
-          setIconSrc('src/assets/img/rainy.png');
+          setIconSrc(`${imgUrl}rainy.png`);
           break;
         case 'Clear':
-          setIconSrc('src/assets/img/sunny.png');
+          setIconSrc(`${imgUrl}sunny.png`);
           break;
         default:
-          setIconSrc('src/assets/img/clouds.png');
+          setIconSrc(`${imgUrl}clouds.png`);
           break;
       }
       setWeather(data);
@@ -80,7 +81,7 @@ const Weather = () => {
       {loading ? (<WeatherSkeleton/>):
       <>
       <WeatherIcon iconSrc={iconSrc} />
-      {<h1 className='font-weather'>{!weather ? '???' :weather.weather[0].main}</h1>}
+      {<h1 className='font-weather'>{!weather ? '????' :weather.weather[0].main}</h1>}
       <hr />
       <WeatherSearch
         city={city}

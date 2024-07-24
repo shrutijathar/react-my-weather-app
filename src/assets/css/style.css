@@ -1,9 +1,10 @@
 
 
+
 body{height:100vh;}
 
 body {
-  background-image: url('/background1.jpg');
+  background-color: #333;
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: center; 
@@ -37,11 +38,6 @@ input.form-control {
     color: #fff !important;
 }
 input.form-control::placeholder{color:#fff6;}
-.move-img {
-    height: 100px;
-    position: absolute;
-    animation: moveLeftToRightAndBack 10s linear infinite;
-  }
   .btn-search {
     display: inline-block;
     background: #000000;
@@ -57,6 +53,11 @@ input.form-control::placeholder{color:#fff6;}
 }
 .err{color:firebrick;}
 .icon-pin{height:30px; filter:invert(1); margin-right:10px;}
+.move-img {
+    height: 100px;
+    position: absolute;
+    animation: moveLeftToRightAndBack 10s linear infinite;
+  }
   @keyframes moveLeftToRightAndBack {
     0% {
       left: 0;
